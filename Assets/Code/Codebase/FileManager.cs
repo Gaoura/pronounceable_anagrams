@@ -2,42 +2,45 @@
 using System.IO;
 using System.Text;
 
-public class FileManager
+namespace Old
 {
-    public static T CreateGraphemeSetFromFile<T, S>(string path, Encoding encoding)
-        where T : GraphemeSet<S>, new()
-        where S : Grapheme, new()
+    public class FileManager
     {
-        T grapheme_set = new T();
-        string line;
-        StreamReader file = new StreamReader(path, encoding);
-
-        while ((line = file.ReadLine()) != null)
+        public static T CreateGraphemeSetFromFile<T, S>(string path, Encoding encoding)
+            where T : GraphemeSet<S>, new()
+            where S : Grapheme, new()
         {
-            S grapheme = new S();
-            grapheme.SetGrapheme(line);
-            grapheme_set.Add(grapheme);
+            T grapheme_set = new T();
+            string line;
+            StreamReader file = new StreamReader(path, encoding);
+
+            while ((line = file.ReadLine()) != null)
+            {
+                S grapheme = new S();
+                grapheme.SetGrapheme(line);
+                grapheme_set.Add(grapheme);
+            }
+
+            file.Close();
+
+            return grapheme_set;
         }
 
-        file.Close();
+        public static void CreateFileFromList(List<VariableLetterGroup> list, string path, Encoding encoding)
+        {
+            StreamWriter file = new StreamWriter(path, false, encoding);
 
-        return grapheme_set;
-    }
+            foreach (VariableLetterGroup line in list)
+                file.WriteLine(line.ToString());
 
-    public static void CreateFileFromList(List<VariableLetterGroup> list, string path, Encoding encoding)
-    {
-        StreamWriter file = new StreamWriter(path, false, encoding);
+            file.Close();
+        }
 
-        foreach (VariableLetterGroup line in list)
-            file.WriteLine(line.ToString());
-        
-        file.Close();
-    }
-
-    public static void CreateOrUpdateFileWithOneLine(VariableLetterGroup vlg, string path, Encoding encoding)
-    {
-        StreamWriter file = new StreamWriter(path, true, encoding);
-        file.WriteLine(vlg.ToString());
-        file.Close();
+        public static void CreateOrUpdateFileWithOneLine(VariableLetterGroup vlg, string path, Encoding encoding)
+        {
+            StreamWriter file = new StreamWriter(path, true, encoding);
+            file.WriteLine(vlg.ToString());
+            file.Close();
+        }
     }
 }

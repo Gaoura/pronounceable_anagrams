@@ -1,8 +1,11 @@
 ﻿using System;
 
-public class LetterGroupException : ArgumentException
+namespace Old
 {
-    public LetterGroupException(string message) : base(message)
+    public class LetterGroupException : ArgumentException
     {
+        public LetterGroupException(string message) : base(message)
+        {
+        }
     }
 }

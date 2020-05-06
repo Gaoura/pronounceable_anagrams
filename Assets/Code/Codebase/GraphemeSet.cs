@@ -1,13 +1,17 @@
-﻿public abstract class GraphemeSet<T>
-    where T : Grapheme
+﻿
+namespace Old
 {
-    protected int _grapheme_length;
-
-    public int GetGraphemeLength()
+    public abstract class GraphemeSet<T>
+    where T : Grapheme
     {
-        return _grapheme_length;
-    }
+        protected int _grapheme_length;
 
-    public abstract void Add(T grapheme);
-    public abstract bool Exists(T grapheme);
+        public int GetGraphemeLength()
+        {
+            return _grapheme_length;
+        }
+
+        public abstract void Add(T grapheme);
+        public abstract bool Exists(T grapheme);
+    }
 }

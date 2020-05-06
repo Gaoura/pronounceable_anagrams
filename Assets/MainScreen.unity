@@ -206,10 +206,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2030529640}
         m_MethodName: SetSavePath
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1650687301}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -678,11 +678,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2030529640}
-        m_MethodName: SetSavePath
-        m_Mode: 2
+        m_MethodName: SetLoadPath
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1858684547}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   save_path: {fileID: 11400000, guid: 5ea4b7642c7434d4493c208831e01a42, type: 2}
-  load_path: {fileID: 0}
+  load_path: {fileID: 11400000, guid: fdf1f90a534050545ab009bc723144de, type: 2}
 --- !u!4 &2030529641
 Transform:
   m_ObjectHideFlags: 0

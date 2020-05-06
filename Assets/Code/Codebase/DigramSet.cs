@@ -1,40 +1,43 @@
 ﻿using System.Collections.Generic;
 
 
-public class DigramSet : GraphemeSet<Digram>
+namespace Old
 {
-    private Dictionary
-                <Letter, List<Letter> > _graphemes 
-        = new Dictionary<Letter, List<Letter> >();
-
-    public DigramSet()
+    public class DigramSet : GraphemeSet<Digram>
     {
-        _grapheme_length = new Digram().Length();
-    }
+        private Dictionary
+                    <Letter, List<Letter>> _graphemes
+            = new Dictionary<Letter, List<Letter>>();
 
-    public override void Add(Digram grapheme)
-    {
-        List<Letter> list;
-
-        if (_graphemes.ContainsKey(grapheme[0]))
+        public DigramSet()
         {
-            _graphemes.TryGetValue(grapheme[0], out list);
-            if (!list.Contains(grapheme[1]))
+            _grapheme_length = new Digram().Length();
+        }
+
+        public override void Add(Digram grapheme)
+        {
+            List<Letter> list;
+
+            if (_graphemes.ContainsKey(grapheme[0]))
+            {
+                _graphemes.TryGetValue(grapheme[0], out list);
+                if (!list.Contains(grapheme[1]))
+                    list.Add(grapheme[1]);
+            }
+            else
+            {
+                list = new List<Letter>();
                 list.Add(grapheme[1]);
+                _graphemes.Add(grapheme[0], list);
+            }
         }
-        else
+
+        public override bool Exists(Digram grapheme)
         {
-            list = new List<Letter>();
-            list.Add(grapheme[1]);
-            _graphemes.Add(grapheme[0], list);
+            if (_graphemes.ContainsKey(grapheme[0]))
+                return _graphemes[grapheme[0]].Contains(grapheme[1]);
+
+            return false;
         }
-    }
-
-    public override bool Exists(Digram grapheme)
-    {
-        if (_graphemes.ContainsKey(grapheme[0]))
-            return _graphemes[grapheme[0]].Contains(grapheme[1]);
-
-        return false;
     }
 }

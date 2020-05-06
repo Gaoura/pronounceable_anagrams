@@ -1,9 +1,12 @@
 ﻿using System;
 
 
-public class GraphemeException : ArgumentException
+namespace Old
 {
-    public GraphemeException(string message) : base(message)
+    public class GraphemeException : ArgumentException
     {
+        public GraphemeException(string message) : base(message)
+        {
+        }
     }
 }

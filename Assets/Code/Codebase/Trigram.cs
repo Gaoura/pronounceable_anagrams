@@ -1,26 +1,29 @@
 ﻿using System.Collections.Generic;
 
 
-public class Trigram : Grapheme
+namespace Old
 {
-    // Constructors 
-
-    public Trigram() { }
-
-    public Trigram(string value)
-        : base(value) { }
-
-    public Trigram(LetterGroup letters)
-        : base(letters) { }
-
-    public Trigram(List<Letter> list)
-        : base(list) { }
-
-
-    // Interface
-
-    public override int Length()
+    public class Trigram : Grapheme
     {
-        return 3;
+        // Constructors 
+
+        public Trigram() { }
+
+        public Trigram(string value)
+            : base(value) { }
+
+        public Trigram(LetterGroup letters)
+            : base(letters) { }
+
+        public Trigram(List<Letter> list)
+            : base(list) { }
+
+
+        // Interface
+
+        public override int Length()
+        {
+            return 3;
+        }
     }
 }

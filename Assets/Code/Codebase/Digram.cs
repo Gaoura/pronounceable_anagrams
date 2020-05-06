@@ -1,26 +1,29 @@
 ﻿using System.Collections.Generic;
 
 
-public class Digram : Grapheme
+namespace Old
 {
-    // Constructors 
-
-    public Digram() { }
-
-    public Digram(string value)
-        : base(value) { }
-
-    public Digram(LetterGroup letters)
-        : base(letters) { }
-
-    public Digram(List<Letter> list)
-        : base(list) { }
-
-    
-    // Interface
-
-    public override int Length()
+    public class Digram : Grapheme
     {
-        return 2;
+        // Constructors 
+
+        public Digram() { }
+
+        public Digram(string value)
+            : base(value) { }
+
+        public Digram(LetterGroup letters)
+            : base(letters) { }
+
+        public Digram(List<Letter> list)
+            : base(list) { }
+
+
+        // Interface
+
+        public override int Length()
+        {
+            return 2;
+        }
     }
 }
