@@ -99,8 +99,14 @@ class Program : MonoBehaviour
 
         //foreach (Old.VariableLetterGroup s in new Old.VariableLetterGroup(letters).SortedAndAnalyzedUniquePermutations(ts))
         //    Old.FileManager.CreateOrUpdateFileWithOneLine(s, save_path.value, Encoding.UTF8);
-        foreach (Word permutation in word.SortedAndAnalyzedUniquePermutations(rules))
-            file_manager.CreateOrUpdateFileWithOneLine(permutation, save_path.value, Encoding.UTF8);
+
+        //foreach (Word permutation in word.SortedAndAnalyzedUniquePermutations(rules))
+        //    file_manager.CreateOrUpdateFileWithOneLine(permutation, save_path.value, Encoding.UTF8);
+
+
+        file_manager.CreateOrOverwriteFile(word.SortedAndAnalyzedUniquePermutations(rules), 
+                                            save_path.value, 
+                                            Encoding.UTF8);
 
         end = DateTime.Now - start;
         print(end.TotalSeconds);
